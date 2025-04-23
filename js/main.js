@@ -40,3 +40,16 @@ const kittenCielo = `<li class="card">
 </li>`;
 
 kittenList.innerHTML = kittenBlue + kittenFiona + kittenCielo;
+
+const addPlus = document.querySelector('.fa-plus-circle');
+
+addPlus.classList.add('js-btn-add');
+
+const kittenPlus = document.querySelector('.js-btn-add');
+
+const formKitten = document.querySelector('.new-form');
+
+kittenPlus.addEventListener("click", () => {
+  formKitten.classList.toggle('collapsed');
+});
+
