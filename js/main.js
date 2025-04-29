@@ -24,28 +24,29 @@ console.log(kittenImage1)
 const kittenImage2 = "https://dev.adalab.es/sphynx-gato.webp";
 const kittenName2 = "Fiona";
 const kittenRace2 = "Sphynx";
-
 const kittenDesc2 = "Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo."
 
 const kittenFiona = `<li class="card">
-  <img class="card_img" src= ${kittenImage2}alt="sphynx-cat" />
-  <h3 class="card_title">Fiona</h3>
-  <h4 class="card_race">Sphynx</h4>
+  <img class="card_img" src= ${kittenImage2} alt="sphynx-cat" />
+  <h3 class="card_title">${kittenName2}</h3>
+  <h4 class="card_race">${kittenRace2}</h4>
   <p class="card_description">
-      Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
-      hasta con pinta de alienígena han llegado a definir a esta raza
-      gatuna que se caracteriza por la «ausencia» de pelo.
+      ${kittenDesc2}
   </p>
 </li>`;
 
+const kittenImage3 = "https://dev.adalab.es/maine-coon-cat.webp";
+const kittenName3 = "Cielo";
+const kittenRace3 = "Maine Coon";
+
+const kittenDesc3 = "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
+
 const kittenCielo = `<li class="card">
-  <img class="card_img" src="https://dev.adalab.es/maine-coon-cat.webp" alt="maine-coon-cat" />
-  <h3 class="card_title">Cielo</h3>
-  <h4 class="card_race">Maine Coon</h4>
+  <img class="card_img" src= ${kittenImage3} alt="maine-coon-cat" />
+  <h3 class="card_title">${kittenName3}</h3>
+  <h4 class="card_race">${kittenRace3}</h4>
   <p class="card_description">
-      Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
-      bella mirada se ha convertido en una de sus señas de identidad.
-      Sus ojos son grandes y las orejas resultan largas y en punta.
+      ${kittenDesc3}
   </p>
 </li>`;
 
@@ -58,10 +59,6 @@ addPlus.classList.add('js-btn-add');
 const kittenPlus = document.querySelector('.js-btn-add');
 
 const formKitten = document.querySelector('.new-form');
-
-kittenPlus.addEventListener("click", () => {
-  formKitten.classList.toggle('collapsed');
-});
 
 const cancelButton = document.querySelector('.button-cancel');
 
@@ -76,12 +73,6 @@ const inputSearchDesc = document.querySelector('.js_in_search_desc');
 
 const buttonSearch = document.querySelector('.js_button-search');
 
-
-const kittenImage3 = "https://dev.adalab.es/maine-coon-cat.webp";
-const kittenName3 = "Cielo";
-const kittenRace3 = "Maine Coon";
-
-const kittenDesc3 = "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta."
 
 buttonSearch.addEventListener("click", (ev) => {
   ev.preventDefault();
@@ -100,6 +91,23 @@ buttonSearch.addEventListener("click", (ev) => {
 });
 
 
+function showNewCatForm(){
+  formKitten.classList.remove('collapsed');
+
+} 
+
+function hideNewCatForm(){
+  formKitten.classList.add('collapsed');
+}
 
 
+function handleClickNewCatForm(event) {
+  if (formKitten.classList.contains("collapsed")) {
+  return showNewCatForm;
 
+  } else {
+    return hideNewCatForm;
+  }
+}
+
+kittenPlus.addEventListener("click", handleClickNewCatForm );
