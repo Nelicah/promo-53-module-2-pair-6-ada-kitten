@@ -8,7 +8,7 @@ const kittenName1 = "Anastacio";
 const kittenRace1 = "Siamés";
 
 const kittenDesc1 = "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente."
-const kittenBlue = `<li class="card">
+ const kittenBlue = `<li class="card">
 <article>
   <img class="card_img" src=${kittenImage1} alt="siames-cat" /> 
   <h3 class="card_title">${kittenName1} </h3>
@@ -48,7 +48,38 @@ const kittenCielo = `<li class="card">
   <p class="card_description">
       ${kittenDesc3}
   </p>
+</li>`; 
+
+function renderKitten(url , name, race, desc) { 
+  return kittenList.innerHTML = 
+  `<li class="card">
+  <img class="card_img" src= ${kittenImage1} />
+  <h3 class="card_title">${kittenName1}</h3>
+  <h4 class="card_race">${kittenRace1}</h4>
+  <p class="card_description">
+      ${kittenDesc1}
+  </p>
+</li>`
+
+
+}
+
+
+function renderKitten(url , name, race, desc) { 
+  return kittenList.innerHTML = 
+  `<li class="card">
+  <img class="card_img" src= ${kittenImage3} />
+  <h3 class="card_title">${kittenName3}</h3>
+  <h4 class="card_race">${kittenRace3}</h4>
+  <p class="card_description">
+      ${kittenDesc3}
+  </p>
 </li>`;
+
+}
+
+
+console.log (renderKitten);
 
 kittenList.innerHTML = kittenBlue + kittenFiona + kittenCielo;
 
@@ -91,6 +122,7 @@ buttonSearch.addEventListener("click", (ev) => {
 });
 
 
+
 function showNewCatForm(){
   formKitten.classList.remove('collapsed');
 
@@ -103,10 +135,10 @@ function hideNewCatForm(){
 
 function handleClickNewCatForm(event) {
   if (formKitten.classList.contains("collapsed")) {
-  return showNewCatForm;
+  return showNewCatForm();
 
   } else {
-    return hideNewCatForm;
+    return hideNewCatForm();
   }
 }
 
