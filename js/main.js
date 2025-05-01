@@ -69,7 +69,7 @@ renderKitten (kittenImage3,kittenName3,kittenRace3,kittenDesc3)
 
 console.log (renderKitten);
 
-kittenList.innerHTML = kittenBlue + kittenFiona + kittenCielo;
+//kittenList.innerHTML = kittenBlue + kittenFiona + kittenCielo;
 
 const addPlus = document.querySelector('.fa-plus-circle');
 
@@ -115,7 +115,6 @@ function showNewCatForm(){
   formKitten.classList.remove('collapsed');
 
 } 
-
 function hideNewCatForm(){
   formKitten.classList.add('collapsed');
 }
